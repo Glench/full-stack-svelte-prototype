@@ -1,15 +1,15 @@
 <script context="module">
-    export function get(req, res) {
+    export async function get(req, abort, redirect) {
         var user = {
             name: 'Glen'
         }
-        res.json({user}) 
+        return {user};
     }
-    export function post(req, res) {
+    export async function post(req, abort, redirect) {
         var user = {
             name: req.body.user_name
         }
-        res.json({user})
+        return {user};
     }
 </script>
 <script>

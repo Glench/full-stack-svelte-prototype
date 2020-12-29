@@ -1,28 +1,25 @@
 <script context="module">
-    export async function post(req, res) {
-        if (req.user) res.redirect('/')
+    export async function post(req, abort, redirect) {
+        if (req.user) redirect('/')
 
-        var data = req.body;
+        var data = Object.assign({}, req.body);
         if (!data.email) {
             data.error = 'Email cannot be blank'
-            res.json(data)
-            return
+            return data;
         }
         if (!data.password) {
             data.error = 'Password cannot be blank'
-            res.json(data)
-            return
+            return data;
         }
         const User = {find: function() { return data.password === '1234' ? {name: 'Glen'} : null}}
         const user = await User.find({where: {email: req.body.email}})
         if (user) {
-            // TODO: flash?
-            res.redirect('/')
+            redirect('/')
         } else {
             data.error = 'Incorrect username or password';
         }
 
-        res.json(data)
+        return data;
     }
 </script>
 <script>
