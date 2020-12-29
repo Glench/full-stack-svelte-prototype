@@ -1,7 +1,5 @@
 # Full Stack Svelte Prototype
 
-A prototype framework (?) for making full-stack Svelte apps that would make my life a lot simpler.
+A prototype framework (?) for making full-stack Svelte apps that is improving my life a lot. Features: code-splitting per page, server-side rendering, automatic client-side component mounting, automatic AJAXy POST requests, primitive cache-busting.
 
-Nothing too fancy yet. Still need to hook up client-side svelte component mounting + css.
-
-Look at `routes/` for examples.
+Look at `routes/` for crappy examples. Run with `npm run start`. Routes are compiled on server-start.
